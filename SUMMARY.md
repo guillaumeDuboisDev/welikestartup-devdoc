@@ -106,4 +106,5 @@
   * [Composer](setup/on-mac.md)
   * [Créer une installation](setup/bedrock.md)
   * [Atom Quickstarter](setup/atom-quickstarter.md)
+  * [Trellis](setup/trellis.md)
 
