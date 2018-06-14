@@ -4,6 +4,8 @@ description: Comment installer l'application avec Trellis et l'architecture Bedr
 
 # Trellis
 
+TODO: Récuperer une base de donnée de l'app + code
+
 ## Installation de Trellis
 
 ```text
@@ -121,7 +123,7 @@ wp search-replace 'https://app.welikestartup.io' 'https://dev.welikestartup'
 En local notre certificat n'est pas valide, il faut donc enlever l'HSTS de notre configuration nginx :
 
 {% code-tabs %}
-{% code-tabs-item title="/etc/nginx/sites-available/app.welikestartup.local.conf" %}
+{% code-tabs-item title="/etc/nginx/sites-available/dev.welikestartup.conf" %}
 ```text
 #add_header Strict-Transport-Security "max-age=0; includeSubDomains; ";
 #add_header Content-Security-Policy "frame-ancestors 'self'" always;
@@ -129,6 +131,10 @@ En local notre certificat n'est pas valide, il faut donc enlever l'HSTS de notre
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+```text
+sudo systemctl restart nginx
+```
 
 ### Ajout du code de l'application
 
