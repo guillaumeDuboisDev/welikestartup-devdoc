@@ -31,8 +31,8 @@ define('SCRIPT_DEBUG', false);
 {% code-tabs %}
 {% code-tabs-item title="vagrant.default.yml" %}
 ```yaml
-vagrant_cpus: 2
-vagrant_memory: 2048 # in MB
+vagrant_cpus: 1
+vagrant_memory: 4096 # in MB
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
