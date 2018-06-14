@@ -55,9 +55,9 @@ xdebug_remote_autostart: 0
 
 {% code-tabs-item title="group\_vars/development/wordpress\_sites.yml" %}
 ```yaml
-wordpress_sites: app.welikestartup.local:
+wordpress_sites: dev.welikestartup:
   site_hosts:
-    canonical: app.welikestartup.local
+    canonical: dev.welikestartup
   local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
   site_install: false
   admin_email: local@welikestartup.local
@@ -78,7 +78,7 @@ wordpress_sites: app.welikestartup.local:
 vault_mysql_root_password: devpw
 
 vault_wordpress_sites:
-  app.welikestartup.local:
+  dev.welikestartup:
     db_user_host: root
     admin_password: admin
     env:
@@ -93,9 +93,9 @@ vault_wordpress_sites:
 ```bash
 vagrant up
 vagrant ssh
-cd /srv/www/app.welikestartup.local/current/
-mysql -u app_welikestartup_local -p app_welikestartup_local_development < app.sql
-wp search-replace 'https://app.welikestartup.io' 'https://app.welikestartup.local'
+cd /srv/www/dev.welikestartup/current/
+mysql -u dev_welikestartup -p dev_welikestartup_development < app.sql
+wp search-replace 'https://app.welikestartup.io' 'https://dev.welikestartup'
 ```
 
 Commenter ces trois lignes :
@@ -112,5 +112,5 @@ Commenter ces trois lignes :
 
 ### Ajout du code de l'application
 
-Déplacer les dossiers de `wp-content` dans les dossiers correspondant dans `app.welikestartup.local/site/web/app/`.
+Déplacer les dossiers de `wp-content` dans les dossiers correspondant dans `dev.welikestartup/site/web/app/`.
 
