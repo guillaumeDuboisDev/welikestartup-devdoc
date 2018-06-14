@@ -4,7 +4,15 @@ description: Comment installer l'application avec Trellis et l'architecture Bedr
 
 # Trellis
 
-##  Migration partielle
+## Installation de Trellis
+
+```text
+mkdir dev.welikestartup && cd dev.welikestartup
+git clone --depth=1 git@github.com:roots/trellis.git && rm -rf trellis/.git
+git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git
+```
+
+Migration partielle
 
 {% hint style="warning" %}
 Ces consignes ne permettent pas de profiter de l'infrastructure de Bedrock correctement.
