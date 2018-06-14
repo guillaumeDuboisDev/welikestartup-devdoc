@@ -23,20 +23,11 @@ Ces consignes ne permettent pas de profiter de l'infrastructure de Bedrock corre
 * [7.2 Fix: verify the type before counting](https://github.com/treyssatvincent/wp-content/commit/08e812662c87dce323f6c5c7372b6d400de41d72)
 * [7.2 fix: Put strings between quotation marks](https://github.com/treyssatvincent/wp-content/commit/fa69f7a0a2477603543bbefb9eccb31ed1e8d43d)
 
-### Changements dans bedrock :
-
-{% code-tabs %}
-{% code-tabs-item title="app.welikestartup.local/site/config/environments/development.php" %}
-```php
-define('WP_DEBUG', false);
-define('SCRIPT_DEBUG', false);
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
 ### Configuration de trellis :
 
-On augmente la RAM disponible pour la VM :
+```text
+cd trellis
+```
 
 {% code-tabs %}
 {% code-tabs-item title="vagrant.default.yml" %}
@@ -96,6 +87,19 @@ vault_wordpress_sites:
     env:
       db_password: 123
       db_prefix: "app_"
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+### Changements dans bedrock :
+
+On augmente la RAM disponible pour la VM :
+
+{% code-tabs %}
+{% code-tabs-item title="app.welikestartup.local/site/config/environments/development.php" %}
+```php
+define('WP_DEBUG', false);
+define('SCRIPT_DEBUG', false);
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
