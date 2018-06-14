@@ -91,6 +91,7 @@ vault_wordpress_sites:
     admin_password: admin
     env:
       db_password: 123
+      db_prefix: "app_"
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
