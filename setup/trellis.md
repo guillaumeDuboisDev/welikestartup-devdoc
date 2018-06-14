@@ -60,23 +60,23 @@ xdebug_remote_autostart: 0
 
 {% code-tabs-item title="group\_vars/development/wordpress\_sites.yml" %}
 ```yaml
-wordpress_sites: dev.welikestartup:
+wordpress_sites: 
+ dev.welikestartup: 
   site_hosts:
-    canonical: dev.welikestartup
+   canonical: dev.welikestartup
   local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-#  site_install: false
-  admin_email: local@dev.welikestartup
+  #site_install: false
+  admin_email: local@welikestartup.dev
   multisite:
-    enabled: false
-  cache:
-    enabled: false
+   enabled: false
   ssl:
-    enabled: true
-    provider: self-signed
-  hsts_max_age: 0
+   enabled: true
+   provider: self-signed
+   hsts_max_age: 0
   csp:
-    enabled: false
-#  db_import: ../site/app.sql
+   enabled: false
+  env:
+   dbprefix: app 
 ```
 {% endcode-tabs-item %}
 
