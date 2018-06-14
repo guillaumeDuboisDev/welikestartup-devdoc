@@ -29,6 +29,8 @@ Ces consignes ne permettent pas de profiter de l'infrastructure de Bedrock corre
 cd trellis
 ```
 
+On augmente la RAM disponible pour la VM :
+
 {% code-tabs %}
 {% code-tabs-item title="vagrant.default.yml" %}
 ```yaml
@@ -94,8 +96,6 @@ vault_wordpress_sites:
 {% endcode-tabs %}
 
 ### Changements dans bedrock :
-
-On augmente la RAM disponible pour la VM :
 
 {% code-tabs %}
 {% code-tabs-item title="app.welikestartup.local/site/config/environments/development.php" %}
