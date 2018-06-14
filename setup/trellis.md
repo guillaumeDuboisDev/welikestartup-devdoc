@@ -62,8 +62,8 @@ wordpress_sites: dev.welikestartup:
   site_hosts:
     canonical: dev.welikestartup
   local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-  site_install: false
-  admin_email: local@welikestartup.local
+#  site_install: false
+  admin_email: local@dev.welikestartup
   multisite:
     enabled: false
   cache:
