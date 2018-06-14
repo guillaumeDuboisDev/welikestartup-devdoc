@@ -28,6 +28,8 @@ define('SCRIPT_DEBUG', false);
 
 ### Configuration de trellis :
 
+On augmente la RAM disponible pour la VM :
+
 {% code-tabs %}
 {% code-tabs-item title="vagrant.default.yml" %}
 ```yaml
@@ -36,6 +38,8 @@ vagrant_memory: 4096 # in MB
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+On configure notre installation :
 
 {% code-tabs %}
 {% code-tabs-item title="group\_vars/development/php.yml" %}
@@ -90,6 +94,8 @@ vault_wordpress_sites:
 
 ### Lancement de la VM :
 
+On peux maintenant créer la VM, puis rentrer dedans pour la configurer.
+
 ```bash
 vagrant up
 vagrant ssh
@@ -98,7 +104,7 @@ mysql -u dev_welikestartup -p dev_welikestartup_development < app.sql
 wp search-replace 'https://app.welikestartup.io' 'https://dev.welikestartup'
 ```
 
-Commenter ces trois lignes :
+En local notre certificat n'est pas valide, il faut donc enlever l'HSTS de notre configuration nginx :
 
 {% code-tabs %}
 {% code-tabs-item title="/etc/nginx/sites-available/app.welikestartup.local.conf" %}
