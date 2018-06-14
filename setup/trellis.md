@@ -4,7 +4,7 @@ description: Comment installer l'application avec Trellis et l'architecture Bedr
 
 # Trellis
 
-## Migration partielle
+##  Migration partielle
 
 {% hint style="warning" %}
 Ces consignes ne permettent pas de profiter de l'infrastructure de Bedrock correctement.
@@ -18,7 +18,7 @@ Ces consignes ne permettent pas de profiter de l'infrastructure de Bedrock corre
 ### Changements dans bedrock :
 
 {% code-tabs %}
-{% code-tabs-item title="app.welikestartup.local/site/config/environments/development.php" %}
+{% code-tabs-item title="app.welikestartup.local/site/config/application.php" %}
 ```php
 $tableprefix = env('DB_PREFIX') ?: 'app_';
 ```
