@@ -38,7 +38,7 @@ vagrant_memory: 4096 # in MB
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-On configure notre installation :
+On configure notre installation dans ces trois fichiers :
 
 {% code-tabs %}
 {% code-tabs-item title="group\_vars/development/php.yml" %}
@@ -65,6 +65,8 @@ wordpress_sites: dev.welikestartup:
   site_install: false
   admin_email: local@welikestartup.local
   multisite:
+    enabled: false
+  cache:
     enabled: false
   ssl:
     enabled: true
