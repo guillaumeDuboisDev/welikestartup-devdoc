@@ -18,14 +18,6 @@ Ces consignes ne permettent pas de profiter de l'infrastructure de Bedrock corre
 ### Changements dans bedrock :
 
 {% code-tabs %}
-{% code-tabs-item title="app.welikestartup.local/site/config/application.php" %}
-```php
-$tableprefix = env('DB_PREFIX') ?: 'app_';
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-{% code-tabs %}
 {% code-tabs-item title="app.welikestartup.local/site/config/environments/development.php" %}
 ```php
 define('WP_DEBUG', false);
