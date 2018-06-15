@@ -4,7 +4,19 @@ description: Comment installer l'application avec Trellis et l'architecture Bedr
 
 # Trellis
 
-## Installation vierge de Trellis
+## Installation de l'application
+
+Le but de Trellis est que l'installation ça à peu près aussi simple que ça :
+
+```bash
+mkdir dev.welikestartup.io && cd dev.welikestartup.io
+git clone --depth=1 git@github.com:welikestartup/trellis.git
+git clone --depth=1 git@github.com:welikestartup/bedrock.git site
+cd trellis
+vagrant up
+```
+
+## Notes :
 
 ```text
 mkdir dev.welikestartup.io && cd dev.welikestartup.io
@@ -76,7 +88,8 @@ wordpress_sites:
   csp:
    enabled: false
   env:
-   dbprefix: app 
+   dbprefix: app_
+    
 ```
 {% endcode-tabs-item %}
 
