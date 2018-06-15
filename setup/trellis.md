@@ -4,16 +4,39 @@ description: Comment installer l'application avec Trellis et l'architecture Bedr
 
 # Trellis
 
-## Installation de l'application
+## Installation de l'environnement de développement
 
-Le but de Trellis est que l'installation ça à peu près aussi simple que ça :
+{% hint style="warning" %}
+Les repositories n'existent pas \(encore\), ce guide est une démo.
+{% endhint %}
+
+D'abord on récupère l'architecture et les paramètres.
 
 ```bash
 mkdir dev.welikestartup.io && cd dev.welikestartup.io
-git clone --depth=1 git@github.com:welikestartup/trellis.git
+git clone --depth=1 git@github.com:welikestartup/trellis.git 
 git clone --depth=1 git@github.com:welikestartup/bedrock.git site
 cd trellis
+```
+
+On lance la création de la machine virtuelle \(après avoir mis à jour les images\)
+
+```bash
+vagrant box update
 vagrant up
+```
+
+On se connecte en ssh à la machine virtuelle et on se rends dans le dossier de l'application
+
+```bash
+vagrant ssh
+cd /srv/www/dev.welikestartup.io/current/
+```
+
+On installe les plugins
+
+```bash
+composer update
 ```
 
 ## Notes :
