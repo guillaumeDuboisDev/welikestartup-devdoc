@@ -39,6 +39,8 @@ On installe les plugins
 composer update
 ```
 
+## Déploiement en production
+
 ## Notes :
 
 ```text
