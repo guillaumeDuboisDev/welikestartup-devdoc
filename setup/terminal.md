@@ -28,13 +28,13 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 
 ### Installation de zsh
 
-Sous macOS installez zsh grâce à homebrew :
+**Sous macOS installez zsh grâce à homebrew :**
 
 ```text
 $ brew install zsh
 ```
 
-Sous debian et ses dérives :
+**Sous Debian et ses dérives :**
 
 ```text
 # apt install zsh
