@@ -51,10 +51,6 @@ git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git
 
 Migration partielle
 
-{% hint style="warning" %}
-Ces consignes ne permettent pas de profiter de l'infrastructure de Bedrock correctement.
-{% endhint %}
-
 ### Changements dans le code :
 
 * [7.2 Fix: verify the type before counting](https://github.com/treyssatvincent/wp-content/commit/08e812662c87dce323f6c5c7372b6d400de41d72)
@@ -151,9 +147,9 @@ On peux maintenant créer la VM, puis rentrer dedans pour la configurer.
 ```bash
 vagrant up
 vagrant ssh
-cd /srv/www/dev.welikestartup/current/
-mysql -u dev_welikestartup -p dev_welikestartup_development < app.sql
-wp search-replace 'https://app.welikestartup.io' 'https://dev.welikestartup'
+cd /srv/www/dev.welikestartup.io/current/
+mysql -u wls -p wls_dev < app.sql
+wp search-replace 'https://app.welikestartup.io' 'https://dev.welikestartup.io'
 ```
 
 En local notre certificat n'est pas valide, il faut donc enlever l'HSTS de notre configuration nginx :
