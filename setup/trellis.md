@@ -26,6 +26,12 @@ vagrant box update
 vagrant up
 ```
 
+On importe la base de donnée
+
+```text
+vagrant provision
+```
+
 On se connecte en ssh à la machine virtuelle et on se rends dans le dossier de l'application
 
 ```bash
