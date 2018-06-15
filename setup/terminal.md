@@ -71,6 +71,10 @@ Trouvez la ligne **ZSH\_THEME** \(ctrl + w\) et changer pour cette configuration
 ZSH_THEME="bullet-train"
 ```
 
+{% hint style="info" %}
+Le changement de thème ne s'applique qu'une fois le terminal réouvert.
+{% endhint %}
+
 #### Installation de la police Source Code Pro
 
 Sans cette police il est possible que le thème bullet-train ne s'affiche pas correctement.
