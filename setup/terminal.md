@@ -92,6 +92,8 @@ Changez ensuite la police dans votre profil iTerm \(⌘ + O &gt; Edit profiles &
 
 **Sous Debian et ses dérivés :**
 
+Normalement la police de base \(monospace regular\) fonctionne bien avec le thème. Mais vous pouvez en installer Source Code Pro si vous le souhaitez :
+
 ```text
 # apt install fonts-powerline
 ```
