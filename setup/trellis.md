@@ -4,12 +4,10 @@ description: Comment installer l'application avec Trellis et l'architecture Bedr
 
 # Trellis
 
-TODO: Récuperer une base de donnée de l'app + code
-
-## Installation de Trellis
+## Installation vierge de Trellis
 
 ```text
-mkdir dev.welikestartup && cd dev.welikestartup
+mkdir dev.welikestartup.io && cd dev.welikestartup.io
 git clone --depth=1 git@github.com:roots/trellis.git && rm -rf trellis/.git
 git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git
 ```
@@ -37,7 +35,7 @@ On augmente la RAM disponible pour la VM :
 {% code-tabs-item title="vagrant.default.yml" %}
 ```yaml
 vagrant_cpus: 1
-vagrant_memory: 4096 # in MB
+vagrant_memory: 2048 # in MB
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -89,10 +87,10 @@ vault_mysql_root_password: devpw
 vault_wordpress_sites:
   dev.welikestartup:
     db_user_host: root
-    admin_password: admin
+    admin_password: wewontusethisbutrequired
     env:
-      db_password: 123
-      db_prefix: "app_"
+      db_password: DB_PASSWORD_HERE
+      acf_pro_key: ACF_PRO_KEY_HERE
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
