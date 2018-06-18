@@ -133,7 +133,7 @@ On se connecte en ssh à la machine virtuelle et on se rends dans le dossier de 
 vagrant ssh
 cd /srv/www/dev.welikestartup.io/current/
 mysql -u wls -p wls_dev < wls_dev.sql
-wp search-replace 'https://app.welikestartup.io' 'https://dev.welikestartup.io'
+wp search-replace 'app.welikestartup.io' 'dev.welikestartup.io'
 ```
 
 En local notre certificat n'est pas valide, il faut donc enlever l'HSTS de notre configuration nginx :
