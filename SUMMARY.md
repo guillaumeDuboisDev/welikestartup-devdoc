@@ -107,4 +107,6 @@
   * [Créer une installation](setup/bedrock.md)
   * [Atom Quickstarter](setup/atom-quickstarter.md)
   * [Trellis](setup/trellis.md)
+* [Workflow](workflow/README.md)
+  * [Travailler avec git](workflow/travailler-avec-git.md)
 
