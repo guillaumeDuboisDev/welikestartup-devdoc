@@ -55,7 +55,7 @@ Télécharger le thème :
 
 ```bash
 $ cd $ZSH_CUSTOM/themes/
-$ wget https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme
+$ wget 
 ```
 
 Éditez le fichier ~/.zshrc avec la commande suivante :

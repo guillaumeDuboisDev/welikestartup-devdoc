@@ -54,7 +54,7 @@ $ export PATH="$PATH:$HOME/.composer/vendor/bin"
 **Avec curl :**
 
 ```text
-$ cd /tmp && curl -L https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o php-cs-fixer
+$ cd /tmp && curl -L  -o php-cs-fixer
 # chmod a+x php-cs-fixer
 # mv php-cs-fixer /usr/local/bin/php-cs-fixer
 ```
