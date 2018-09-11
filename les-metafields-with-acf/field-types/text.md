@@ -15,7 +15,7 @@ description: >-
 ### Settings
 
 | **Name** | **Description** |
-| --- | --- | --- | --- | --- | --- |
+| :--- | :--- |
 | **Default value** | Set a default value for this field when creating a new post |
 | **Placeholder** | Appears within input when no value exists |
 | **Prepend** | Adds visual text element before the input  |

@@ -21,6 +21,14 @@ composer create-project roots/bedrock
 php composer.phar create-project roots/bedrock
 ```
 
+    puis
+
+```text
+mv bedrock/* ./
+```
+
+
+
     2. Copier `.env.example` en `.env` et mettre à jour les variables d'environnement :
 
 ```php

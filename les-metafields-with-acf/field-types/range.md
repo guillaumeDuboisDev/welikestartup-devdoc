@@ -9,7 +9,7 @@
 ### Settings {#settings}
 
 | Name | **Description** |
-| --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- |
 | Default Value | The default value loaded when editing a new post \(when no value exists\) |
 | Minimum Value | The minimum \(numeric\) value allowed, which must not be greater than its maximum value. Defaults to 0 |
 | Maximum Value | The maximum \(numeric\) value allowed, which must not be less than its minimum value. Defaults to 100 |

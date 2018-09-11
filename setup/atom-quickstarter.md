@@ -66,7 +66,7 @@ $ cd /tmp && curl -L  -o php-cs-fixer
 Voici quelques raccourcis utiles :
 
 | shift + ⌘ + p  | Afficher la palette de commande |
-| --- | --- | --- | --- | --- | --- |
+| :--- | :--- |
 | ⌘ + / | Commenter/Décommenter une ou plusieurs lignes |
 | ⌘ + p | Aller à un fichier |
 | ctrl + g | Aller à un numéro de ligne |
