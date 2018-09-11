@@ -24,7 +24,8 @@ php composer.phar create-project roots/bedrock
     puis
 
 ```text
-mv bedrock/* ./
+mv bedrock/.* ./
+rmdir bedrock
 ```
 
 
