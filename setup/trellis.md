@@ -4,174 +4,123 @@ description: Comment installer l'application avec Trellis et l'architecture Bedr
 
 # Trellis
 
+## Dépendances
+
+* [Ansible](https://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-pip) &gt;= 2.4.0
+* [Virtualbox](https://www.virtualbox.org/wiki/Downloads) &gt;= 4.3.10
+* [Vagrant](https://www.vagrantup.com/downloads.html) &gt;= 1.8.5
+
+{% hint style="info" %}
+Changements nécessaires : [https://github.com/treyssatvincent/wp-content/compare/bedrock-trellis](https://github.com/treyssatvincent/wp-content/compare/bedrock-trellis)
+{% endhint %}
+
 ## Déploiement en développement
 
-### Configuration de Trellis & Bedrock
+### Installation de la machine virtuelle
 
 D'abord on récupère l'architecture.
 
 ```bash
-mkdir dev.welikestartup.io && cd dev.welikestartup.io
-git clone --depth=1 git@github.com:roots/trellis.git 
-git clone --depth=1 git@github.com:roots/bedrock.git site
-cd trellis
+git clone git@???.git && cd dev.app.welikestartup.io/trellis
 ```
 
-#### On paramètre Trellis.
-
-{% hint style="info" %}
-Vous pouvez modifier le nom de domaine utilisé dans les exemples, mais pensez à le faire à chaque fichiers où il apparait.
-{% endhint %}
-
-D'abords les paramètres de PHP :
-
-{% code-tabs %}
-{% code-tabs-item title="group\_vars/php.yml" %}
-```yaml
-php_error_reporting: 'E_ERROR'
-php_display_errors: 'Off'
-php_display_startup_errors: 'Off'
-php_track_errors: 'Off'
-php_mysqlnd_collect_memory_statistics: 'Off'
-php_opcache_enable: 1
-xdebug_remote_enable: 0
-xdebug_remote_connect_back: 0
-xdebug_remote_autostart: 0
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-Ensuite les paramètres d'installation de notre application :
-
-{% code-tabs %}
-{% code-tabs-item title="group\_vars/wordpress\_sites.yml" %}
-```yaml
-wordpress_sites:
-  dev.welikestartup.io:
-    site_hosts:
-      - canonical: dev.welikestartup.io
-    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-    site_install: false
-    admin_email: wewont@usethis.butrequired
-    multisite:
-      enabled: false
-    ssl:
-      enabled: true
-      provider: self-signed
-      hsts_max_age: 0
-    csp:
-      enabled: false
-    env:
-      db_name: wls_dev
-      db_user: wls
-      db_prefix: app_
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-Enfin les valeurs qui doivent rester secrètes : 
-
-{% code-tabs %}
-{% code-tabs-item title="group\_vars/vault.yml" %}
-```yaml
-vault_mysql_root_password: wewontusethisbutrequired
-
-vault_wordpress_sites:
-  dev.welikestartup.io:
-    admin_password: wewontusethisbutrequired
-    env:
-      db_password: 1234567890
-      acf_pro_key: ACF_PRO_KEY_HERE
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-Pensez à mettre la clef d'ACF PRO.
-
-Enfin on ajoute un peu de RAM à la machine virtuelle en modifiant la ligne suivante dans `vagrant.default.yml` :
-
-{% code-tabs %}
-{% code-tabs-item title="vagrant.default.yml" %}
-```yaml
-vagrant_memory: 2048
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-#### On configure Bedrock
-
-```text
-cd ../site
-```
-
-D'abord on remplace le composer.json avec celui-ci : [composer.json](https://gist.github.com/treyssatvincent/82fb6062e14aeb1296fb74d4fe37b5e1)
-
-On récupère une sauvegarde de la base de données que l'on va placer dans la racine du site.
-
-Puis on désactive les messages d'erreurs :
-
-{% code-tabs %}
-{% code-tabs-item title="app.welikestartup.local/site/config/environments/development.php" %}
-```php
-define('WP_DEBUG', false);
-define('SCRIPT_DEBUG', false);
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-### Démarrage de la machine virtuelle
+On récupère le mot de passe de chiffrement
 
 ```bash
-cd ../trellis
+echo "lemotdepasse" > .vault_pass
+```
+
+On ajoute une sauvegarde de la base de données à `../site/wls_dev.sql`
+
+```bash
+??? 
+```
+
+On ajoute les uploads
+
+???
+
+On lance la création de la machine virtuelle
+
+```bash
 vagrant box update
 vagrant up
 ```
 
-On se connecte en ssh à la machine virtuelle et on se rends dans le dossier de l'application pour importer la base de données \(Remplacez wls\_dev.sql par le nom de votre ficher sql\).
+{% hint style="info" %}
+Soyez patient, cela prend du temps. Mais soyez attentif,  vous allez devoir mettre le mot de passe système pendant le processus.
+{% endhint %}
+
+### Configuration de la machine virtuelle
+
+La logique de Trellis veux que les actions avec Composer et WP-CLI soient fait dans la VM. Il faut donc se connecter à la VM
 
 ```bash
 vagrant ssh
-cd /srv/www/dev.welikestartup.io/current/
-mysql -u wls -p wls_dev < wls_dev.sql
-wp search-replace 'app.welikestartup.io' 'dev.welikestartup.io'
+cd /srv/www/dev.app.welikestartup.io/current/
 ```
 
-En local notre certificat n'est pas valide, il faut donc enlever l'HSTS de notre configuration nginx :
+Import de la base de données
 
-```text
-nano /etc/nginx/sites-available/dev.welikestartup.io.conf
+```bash
+wp db import wls_dev.sql
 ```
 
-{% code-tabs %}
-{% code-tabs-item title="/etc/nginx/sites-available/dev.welikestartup.io.conf" %}
-```text
-#add_header Strict-Transport-Security "max-age=0; includeSubDomains; ";
-#add_header Content-Security-Policy "frame-ancestors 'self'" always;
-#add_header X-Frame-Options $x_frame_options always;
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+Installation des plugins
 
-On recharge la configuration de nginx
-
-```text
-sudo systemctl reload nginx
+```bash
+composer update
 ```
 
-### Ajout du code de l'application
+Si votre base de données contient des urls ne correspondant pas à dev.app.welikestartup.io pensez à faire un search and replace :
 
-Déplacer les thèmes \(buddyapp et buddyapp-child\) dans le dossier `dev.welikestartup.io/site/web/app/themes`.
-
-Déplacer les médias \(uploads\) dans `dev.welikestartup.io/site/web/app/uploads`
+```bash
+wp search-replace 'app.welikestartup.io' 'dev.app.welikestartup.io'
+```
 
 {% hint style="success" %}
-Votre application est disponible à https://dev.welikestartup.io !
+Testez votre application à [https://dev.app.welikestartup.io](https://dev.app.welikestartup.io)
+{% endhint %}
+
+### Aller plus loin
+
+#### Utiliser Sequel Pro
+
+Installer le plugin Vagrant pour Sequel Pro
+
+```bash
+vagrant plugin install vagrant-trellis-sequel
+```
+
+Il suffit de lancer la commande suivante dans le répertoire de Trellis : 
+
+```bash
+vagrant trellis-sequel open
+```
+
+Remplacez l'utilisateur par `wls` et la base par `wls_dev`.
+
+#### Faire confiance au certificat en local
+
+Installer le plugin Vagrant
+
+```bash
+vagrant plugin install vagrant-trellis-cert
+```
+
+Il suffit de lancer la commande suivante dans le répertoire de Trellis : 
+
+```bash
+vagrant trellis-cert trust
+```
+
+ Mettez votre mot de passe système quand il vous est demandé.
+
+{% hint style="info" %}
+Pour être pris en compte, redémarrer votre ordinateur.
 {% endhint %}
 
 ## Déploiement en production
 
-## Changements dans le code :
 
-* [7.2 Fix: verify the type before counting](https://github.com/treyssatvincent/wp-content/commit/08e812662c87dce323f6c5c7372b6d400de41d72)
-* [7.2 fix: Put strings between quotation marks](https://github.com/treyssatvincent/wp-content/commit/fa69f7a0a2477603543bbefb9eccb31ed1e8d43d)
 

@@ -1,12 +1,12 @@
 # Range
 
-### Screenshots {#screenshots}
+### Screenshots <a id="screenshots"></a>
 
 ![Interface](../../.gitbook/assets/acf-range-field-input.png)
 
 ![Setting](../../.gitbook/assets/acf-range-field-settings.png)
 
-### Settings {#settings}
+### Settings <a id="settings"></a>
 
 | Name | **Description** |
 | :--- | :--- |
@@ -17,7 +17,7 @@
 | Prepend | HTML displayed before \(to the left\) of the range input |
 | Append | HTML displayed after \(to the right\) of the range input |
 
-### Template usage {#template-usage}
+### Template usage <a id="template-usage"></a>
 
 The **Range** field will return a numeric value. Below are some examples of how you can use this data. Please note that all following examples use a Range field called “font\_size”, and if you are working with a sub field, remember to replace any `get_field()` and `the_field()` functions with the relative `get_sub_field()` and `the_sub_field()` functions.
 

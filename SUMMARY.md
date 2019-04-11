@@ -109,4 +109,5 @@
   * [Trellis](setup/trellis.md)
 * [Workflow](workflow/README.md)
   * [Travailler avec git](workflow/travailler-avec-git.md)
+* [Ops](ops.md)
 

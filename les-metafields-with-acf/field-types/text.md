@@ -6,7 +6,7 @@ description: >-
 
 # Text
 
-### Captures d'écran {#screenshots}
+### Captures d'écran <a id="screenshots"></a>
 
 ![Param&#xE8;tres](../../.gitbook/assets/acf-text-field-edit.png)
 
@@ -22,7 +22,7 @@ description: >-
 | **Append** | Adds a visual text element after the input |
 | **Character Limit** | Limits the number of characters allowed |
 
-### Template usage {#template-usage}
+### Template usage <a id="template-usage"></a>
 
 The API will return a string.
 

@@ -55,7 +55,6 @@ Télécharger le thème :
 
 ```bash
 $ cd $ZSH_CUSTOM/themes/
-$ wget 
 ```
 
 Éditez le fichier ~/.zshrc avec la commande suivante :

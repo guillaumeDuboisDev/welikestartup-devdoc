@@ -6,7 +6,7 @@ description: >-
 
 # Textarea
 
-### Creating a textarea {#creating-a textarea}
+### Creating a textarea <a id="creating-a textarea"></a>
 
 The Textarea field contains options to customize your field:
 
@@ -15,11 +15,11 @@ The Textarea field contains options to customize your field:
 
 ![](../../.gitbook/assets/textarea-options.png)
 
-### Edit Screen {#edit-screen}
+### Edit Screen <a id="edit-screen"></a>
 
 ![](../../.gitbook/assets/textarea-input.png)
 
-### Template usage {#template-usage}
+### Template usage <a id="template-usage"></a>
 
 The API will return a string.
 
