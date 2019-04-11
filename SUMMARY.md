@@ -99,8 +99,6 @@
     * [acf/upload\_prefilter](les-metafields-with-acf/les-filtres-hooks/acf-upload_prefilter.md)
     * [acf/validate\_attachment](les-metafields-with-acf/les-filtres-hooks/acf-validate_attachment.md)
     * [acf/validate\_value](les-metafields-with-acf/les-filtres-hooks/acf-validate_value.md)
-* [Untitled](untitled-1.md)
-* [Untitled](untitled.md)
 * [Setup](setup/README.md)
   * [Terminal](setup/terminal.md)
   * [Composer](setup/on-mac.md)
