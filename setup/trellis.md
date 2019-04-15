@@ -7,7 +7,7 @@ description: Comment installer l'application avec Trellis et l'architecture Bedr
 ## Dépendances
 
 * [Ansible](https://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-pip) &gt;= 2.4.0
-* [Virtualbox](https://www.virtualbox.org/wiki/Downloads) &gt;= 4.3.10
+* [Virtualbox](https://www.virtualbox.org/wiki/Downloads) : Télécharger la dernière version pour son OS.
 * [Vagrant](https://www.vagrantup.com/downloads.html) &gt;= 1.8.5
 
 {% hint style="info" %}
